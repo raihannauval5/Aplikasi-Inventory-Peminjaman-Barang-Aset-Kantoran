@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Manajemen Inventaris - Dashboard Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-layout admin-mode">
+    <!-- Top Bar Admin -->
+    <header class="top-bar">
+      <div class="brand-title">
+        <span class="icon-box">🛡️</span>
+        <div>
+          <h1>Dashboard Admin - Kelola Peminjaman Aset</h1>
+          <p>Verifikasi pengajuan, perbarui status persetujuan, dan kelola kelayakan stok aset</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Stat Cards KPI Bar -->
+    <div class="stats-container">
+      <div class="stat-card">
+        <span class="stat-label">Total Pengajuan</span>
+        <span class="stat-value" id="kpi-total">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Pending</span>
+        <span class="stat-value" id="kpi-pending">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Sedang Dipinjam</span>
+        <span class="stat-value" id="kpi-disetujui">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Dikembalikan</span>
+        <span class="stat-value" id="kpi-dikembalikan">0</span>
+      </div>
+    </div>
+
+    <!-- Main Table Container -->
+    <main class="panel-section full-width">
+      <div class="toolbar-admin">
+        <div class="search-group">
+          <input type="text" id="filter-search" placeholder="Cari Resi, Peminjam, atau Barang..." onkeyup="renderTabelAdmin()">
+          <select id="filter-status" onchange="renderTabelAdmin()">
+            <option value="semua">Semua Status</option>
+            <option value="Pending">Pending</option>
+            <option value="Disetujui">Disetujui</option>
+            <option value="Dikembalikan">Dikembalikan</option>
+            <option value="Ditolak">Ditolak</option>
+          </select>
+        </div>
+        <button class="btn-reset" onclick="resetDataAdmin()">Reset Semua Data</button>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Detail Resi & Peminjam</th>
+              <th>Aset & Tanggal Pinjam</th>
+              <th>Tujuan Pinjam</th>
+              <th>Ubah Status</th>
+              <th>Catatan Admin & Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="tabel-admin-body">
+            <!-- Data dimuat via JS -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="script-admin.js"></script>
+</body>
+</html>

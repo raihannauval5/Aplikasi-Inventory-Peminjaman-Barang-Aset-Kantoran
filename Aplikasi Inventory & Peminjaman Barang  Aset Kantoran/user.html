@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Peminjaman Aset & Inventaris - User Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Navigation Top Bar -->
+    <header class="top-bar">
+      <div class="brand-title">
+        <span class="icon-box">📦</span>
+        <div>
+          <h1>Portal Peminjaman Aset Kantor</h1>
+          <p>Ajukan pinjaman peralatan dan pantau status persetujuan secara real-time</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Section Left: Form Pengajuan -->
+      <section class="panel-section">
+        <div class="panel-header">
+          <h2>Formulir Peminjaman Aset</h2>
+        </div>
+        <form id="form-pinjam">
+          <div class="form-group">
+            <label for="namaPeminjam">Nama Lengkap & Divisi</label>
+            <input type="text" id="namaPeminjam" placeholder="Contoh: Andi Pratama (IT Dept)" required>
+          </div>
+
+          <div class="form-group">
+            <label for="pilihanBarang">Pilih Barang / Aset</label>
+            <select id="pilihanBarang" required>
+              <option value="">-- Pilih Barang --</option>
+              <option value="Proyektor Epson HD">Proyektor Epson HD</option>
+              <option value="Laptop Dell XPS 15">Laptop Dell XPS 15</option>
+              <option value="Kamera DSLR Canon 80D">Kamera DSLR Canon 80D</option>
+              <option value="Mic Wireless Boya">Mic Wireless Boya</option>
+              <option value="Pointer Presentasi">Pointer Presentasi</option>
+            </select>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="tglPinjam">Tanggal Pinjam</label>
+              <input type="date" id="tglPinjam" required>
+            </div>
+            <div class="form-group">
+              <label for="tglKembali">Rencana Kembali</label>
+              <input type="date" id="tglKembali" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="keperluan">Tujuan / Keperluan</label>
+            <textarea id="keperluan" rows="3" placeholder="Jelaskan secara singkat keperluan penggunaan barang..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Kirim Pengajuan Pinjaman</button>
+        </form>
+      </section>
+
+      <!-- Section Right: Riwayat Resi Pinjaman -->
+      <section class="panel-section">
+        <div class="panel-header">
+          <h2>Riwayat & Status Peminjaman</h2>
+        </div>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Kode Resi</th>
+                <th>Barang & Peminjam</th>
+                <th>Jadwal Pinjam</th>
+                <th>Status</th>
+                <th>Catatan Admin</th>
+              </tr>
+            </thead>
+            <tbody id="tabel-user-body">
+              <!-- Data dimuat via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script-user.js"></script>
+</body>
+</html>
